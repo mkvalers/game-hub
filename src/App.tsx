@@ -2,22 +2,10 @@ import { Button, HStack } from "@chakra-ui/react";
 import { Tooltip } from "./components/ui/tooltip";
 import { ColorModeButton } from "@/components/ui/color-mode";
 import { toaster, Toaster } from "@/components/ui/toaster";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
-  return (
-    <HStack>
-      <Tooltip content="Delete item">
-        <Button>Delete</Button>
-      </Tooltip>
-      <ColorModeButton>Button</ColorModeButton>
-      <Button
-        onClick={() => toaster.create({ title: "Saved!", type: "success" })}
-      >
-        Trigger Toast
-      </Button>
-      <Toaster />
-    </HStack>
-  );
+  return <MainLayout></MainLayout>;
 }
 
 export default App;
