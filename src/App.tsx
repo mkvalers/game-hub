@@ -5,7 +5,7 @@ import { toaster, Toaster } from "@/components/ui/toaster";
 import MainLayout from "./layouts/MainLayout";
 
 function App() {
-  return <MainLayout></MainLayout>;
+  return <MainLayout />;
 }
 
 export default App;
