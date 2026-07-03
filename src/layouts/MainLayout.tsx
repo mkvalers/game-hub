@@ -1,10 +1,9 @@
+import GameGrid from "@/components/GameGrid";
 import NavBar from "@/components/NavBar";
 import useGames from "@/hooks/useGames";
 import { Grid, GridItem, Box, Show } from "@chakra-ui/react";
 
 const MainLayout = () => {
-  const { games, error, isLoading, setGames, setError } = useGames();
-
   return (
     <Grid
       templateAreas={{
@@ -15,19 +14,11 @@ const MainLayout = () => {
       <GridItem area="nav" p={2}>
         <NavBar />
       </GridItem>
-      <GridItem
-        area="aside"
-        bg={"green"}
-        display={{ base: "none", lg: "block" }}
-      >
+      <GridItem area="aside" display={{ base: "none", lg: "block" }}>
         Aside
       </GridItem>
-      <GridItem area="main" bg={"pink"}>
-        <ul>
-          {games?.results.map((game) => (
-            <li key={game.id}>{game.name}</li>
-          ))}
-        </ul>
+      <GridItem area="main">
+        <GameGrid />
       </GridItem>
     </Grid>
   );

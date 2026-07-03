@@ -8,9 +8,9 @@ export interface Game {
     metacritic: number;
 }
 
-export interface Games {
+export interface FetchGameResponse {
     count: number;
     results: Game[];
 }
 
-export default create('/games');
+export default create('/xgames');
