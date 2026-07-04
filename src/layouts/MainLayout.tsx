@@ -1,3 +1,4 @@
+import Aside from "@/components/Aside";
 import GameGrid from "@/components/GameGrid";
 import NavBar from "@/components/NavBar";
 import useGames from "@/hooks/useGames";
@@ -15,7 +16,7 @@ const MainLayout = () => {
         <NavBar />
       </GridItem>
       <GridItem area="aside" display={{ base: "none", lg: "block" }}>
-        Aside
+        <Aside />
       </GridItem>
       <GridItem area="main">
         <GameGrid />
