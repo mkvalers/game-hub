@@ -1,4 +1,5 @@
 import create from "@/services/http-service";
+import { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 
 // Ctrl + T - to search anything within the code base.
@@ -10,7 +11,7 @@ interface FetchResponse<T> {
     results: T[];
 }
 
-const useData = <T>(endpoint : string) => {
+const useData = <T>(endpoint : string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
     const [data, setData] = useState<T[]>([]);
     const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -18,7 +19,7 @@ const useData = <T>(endpoint : string) => {
     useEffect(() => {
         setLoading(true);
 
-        const { request, cancel } = create(endpoint).get<FetchResponse<T>>();
+        const { request, cancel } = create(endpoint).get<FetchResponse<T>>(requestConfig);
 
         request
             .then(({data}) => {
@@ -36,7 +37,7 @@ const useData = <T>(endpoint : string) => {
         return () => {
             cancel();
         };
-    }, []);
+    }, deps ? [...deps] : []);
 
   return {data, isLoading, error};
 }
