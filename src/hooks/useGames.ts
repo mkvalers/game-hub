@@ -30,7 +30,7 @@ const useGames = () => {
         return () => {
             cancel();
         };
-    },[]);
+    }, []);
     
     return {games, error, isLoading, setGames, setError}
 }
