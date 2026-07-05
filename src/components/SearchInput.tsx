@@ -22,6 +22,9 @@ const SearchInput = ({ onSearch }: Props) => {
           borderRadius={20}
           placeholder="Seach games..."
           variant="subtle"
+          fontSize={{ base: "15px" }}
+          overflow="hidden"
+          textOverflow="ellipsis"
         />
       </InputGroup>
     </form>

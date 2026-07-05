@@ -1,4 +1,4 @@
-import { Box, Menu, Button, Portal } from "@chakra-ui/react";
+import { Text, Box, Menu, Button, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 export interface SortOrder {
@@ -22,7 +22,7 @@ const SortSelector = ({ selectedSort, onSelectSort }: Props) => {
   ];
 
   return (
-    <Box mb={5}>
+    <Box>
       <Menu.Root
         onSelect={(details) => {
           const sort = sortOrder.find((s) => s.value === details.value);
@@ -30,8 +30,11 @@ const SortSelector = ({ selectedSort, onSelectSort }: Props) => {
         }}
       >
         <Menu.Trigger asChild>
-          <Button variant="subtle">
-            {`Sort By: ${selectedSort?.label ?? "Relevance"}`}
+          <Button variant="subtle" width="100%">
+            <Text
+              overflow="hidden"
+              textOverflow="ellipsis"
+            >{`Sort By: ${selectedSort?.label ?? "Relevance"}`}</Text>
             <BsChevronDown />
           </Button>
         </Menu.Trigger>

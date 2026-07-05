@@ -1,5 +1,5 @@
 import useGenres, { Genre } from "@/hooks/useGenres";
-import { Box, Button, Menu, Portal } from "@chakra-ui/react";
+import { Text, Box, Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
@@ -13,7 +13,7 @@ const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
   if (error) return null;
 
   return (
-    <Box mb={5} display={{ base: "block", md: "block", lg: "none" }}>
+    <Box display={{ base: "block", md: "block", lg: "none" }}>
       <Menu.Root
         onSelect={(details) => {
           if (details.value === "all") {
@@ -25,8 +25,11 @@ const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
         }}
       >
         <Menu.Trigger asChild>
-          <Button variant="subtle">
-            {selectedGenre?.name || "Genres"} <BsChevronDown />
+          <Button variant="subtle" width="100%">
+            <Text overflow="hidden" textOverflow="ellipsis">
+              {selectedGenre?.name || "Genres"}
+            </Text>
+            <BsChevronDown />
           </Button>
         </Menu.Trigger>
         <Portal>

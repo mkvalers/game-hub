@@ -31,7 +31,7 @@ const GameCard = ({ game }: Props) => {
       <Card.Body as={Flex} direction="column" justifyContent="space-between">
         {/* <Heading fontSize="2xl">{game.name}</Heading> */}
         <TruncatedText text={game.name} maxLength={40} />
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" flexWrap="wrap">
           <PlatformIconList platforms={game.parent_platforms} />
           <CriticScore score={game.metacritic} />
         </HStack>

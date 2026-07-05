@@ -1,5 +1,5 @@
 import usePlatforms, { Platform } from "@/hooks/usePlatforms";
-import { Box, Button, Menu, Portal } from "@chakra-ui/react";
+import { Text, Box, Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
@@ -13,7 +13,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
   if (error) return null;
 
   return (
-    <Box mb={5}>
+    <Box>
       <Menu.Root
         onSelect={(details) => {
           if (details.value === "all") {
@@ -25,8 +25,11 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
         }}
       >
         <Menu.Trigger asChild>
-          <Button variant="subtle">
-            {selectedPlatform?.name || "Platforms"} <BsChevronDown />
+          <Button variant="subtle" width="100%">
+            <Text overflow="hidden" textOverflow="ellipsis">
+              {selectedPlatform?.name || "Platforms"}
+            </Text>
+            <BsChevronDown />
           </Button>
         </Menu.Trigger>
         <Portal>
