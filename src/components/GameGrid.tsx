@@ -1,10 +1,7 @@
 import useGames from "@/hooks/useGames";
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import { Skeleton } from "boneyard-js/react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
-import { Genre } from "@/hooks/useGenres";
-import { Platform } from "@/hooks/usePlatforms";
 import { GameQuery } from "@/layouts/MainLayout";
 
 interface Props {
