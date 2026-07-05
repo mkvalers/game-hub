@@ -25,25 +25,22 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
   return (
     <>
       {error && null}
+      <Heading fontSize={"2xl"}>Genres</Heading>
+      <Button
+        my={4}
+        size="sm"
+        width="100%"
+        variant={selectedGenre == null ? "subtle" : "outline"}
+        colorPalette="fg"
+        onClick={() => onSelectedGenre(null)}
+      >
+        Reset
+      </Button>
 
       {isLoading ? (
         skeleton.map((skeleton) => <GenreListSkeleton key={skeleton} />)
       ) : (
         <List.Root listStyleType="none">
-          <Heading mb={3} fontSize={"2xl"}>
-            Genres
-          </Heading>
-          <List.Item py={"5px"} mb={2}>
-            <Button
-              size="sm"
-              width="100%"
-              variant={selectedGenre == null ? "subtle" : "outline"}
-              colorPalette="fg"
-              onClick={() => onSelectedGenre(null)}
-            >
-              Reset
-            </Button>
-          </List.Item>
           {data.map((genre) => (
             <List.Item key={genre.id} py={"5px"}>
               <HStack>
