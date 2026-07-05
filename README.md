@@ -10,7 +10,7 @@ A game discovery web app for browsing, searching, and filtering games by genre, 
 
 ---
 
-> 🚧 **Work in progress** — this project is actively being improved. Next up: migrating data fetching to **TanStack Query**, adding **React Router** for proper routing (e.g. a game details page), and moving shared filter state to **Zustand**.
+> 🚧 **Work in progress** — this project is actively being improved.
 
 ## Features
 
