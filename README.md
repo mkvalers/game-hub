@@ -4,7 +4,7 @@
 
 A game discovery web app for browsing, searching, and filtering games by genre, platform, and popularity — powered by the RAWG API.
 
-[Live Demo](https://game-hub-sand-eight.vercel.app)
+[Live Demo](https://game-hub-mkv.vercel.app/)
 
 </div>
 
