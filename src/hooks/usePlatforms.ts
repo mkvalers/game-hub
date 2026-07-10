@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { axiosInstance, FetchResponse } from "@/services/http-service";
+import HttpService from "@/services/http-service";
 
 export interface Platform {
     id: number;
@@ -7,12 +7,12 @@ export interface Platform {
     slug: string;
 }
 
+const platformService = new HttpService<Platform>('/platforms')
+
 const usePlatforms = () => {
     return useQuery({
         queryKey: ['platforms'],
-        queryFn: () => axiosInstance
-                        .get<FetchResponse<Platform>>('/platforms')
-                        .then(res => res.data),
+        queryFn: () => platformService.getAll(),
         keepPreviousData: true,
         staleTime: 24 * 60 * 60 * 1000,     //24 Hours
     });

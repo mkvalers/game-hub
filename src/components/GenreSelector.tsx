@@ -20,7 +20,7 @@ const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
             onSelectGenre(null);
             return;
           }
-          const genre = data?.results.find((g) => g.slug === details.value);
+          const genre = data?.find((g) => g.slug === details.value);
           if (genre) onSelectGenre(genre);
         }}
       >
@@ -36,7 +36,7 @@ const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
           <Menu.Positioner>
             <Menu.Content>
               <Menu.Item value="all">Reset</Menu.Item>
-              {data?.results.map((genre) => (
+              {data?.map((genre) => (
                 <Menu.Item key={genre.id} value={genre.slug}>
                   {genre.name}
                 </Menu.Item>

@@ -20,7 +20,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
             onSelectPlatform(null);
             return;
           }
-          const platform = data?.results.find((p) => p.slug === details.value);
+          const platform = data?.find((p) => p.slug === details.value);
           if (platform) onSelectPlatform(platform);
         }}
       >
@@ -36,7 +36,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
           <Menu.Positioner>
             <Menu.Content>
               <Menu.Item value="all">Reset</Menu.Item>
-              {data?.results.map((platform) => (
+              {data?.map((platform) => (
                 <Menu.Item key={platform.id} value={platform.slug}>
                   {platform.name}
                 </Menu.Item>

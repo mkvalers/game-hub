@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { axiosInstance, FetchResponse } from "@/services/http-service";
+import HttpService from "@/services/http-service";
 
 export interface Genre {
     id: number;
@@ -8,14 +8,14 @@ export interface Genre {
     image_background: string;
 }
 
+const genreService = new HttpService<Genre>('/genres');
+
 const useGenres = () => {
     return useQuery({
         queryKey: ["genres"],
-        queryFn: () => axiosInstance
-                        .get<FetchResponse<Genre>>('/genres')
-                        .then(res => res.data),
+        queryFn: () => genreService.getAll(),
         staleTime: 24 * 60 * 60 * 1000,     //24 Hours
-        keepPreviousData: true
+        keepPreviousData: true,
     });
 }
 

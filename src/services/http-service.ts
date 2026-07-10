@@ -27,29 +27,12 @@ class HttpService <T> {
         this.endpoint = endpoint;
     }
 
-    getAll() {
-        const controller = new AbortController();
-
-        const request = axiosInstance.get<T[]>(this.endpoint, {
-            signal: controller.signal
-        });
-
-        return {request, cancel: () => controller.abort}
-    }
-
-    get(requestConfig?: AxiosRequestConfig) {
-        const controller = new AbortController();
-
-        const request = axiosInstance.get<T>(this.endpoint, {
-            signal: controller.signal,
-            ...requestConfig
-        });
-
-        return {request, cancel: () => controller.abort}
+    getAll(requestConfig?: AxiosRequestConfig) {
+        return axiosInstance
+                .get<FetchResponse<T>>(this.endpoint, requestConfig)
+                .then(res => res.data.results)
     }
 
 }
-
-export {CanceledError, axiosInstance}
 
 export default HttpService;
