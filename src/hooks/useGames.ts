@@ -18,7 +18,7 @@ const gameService = new HttpService<Game>('/games');
 
 const useGames = (gameQuery: GameQuery) => {
     return useInfiniteQuery<FetchResponse<Game>, Error>({
-        queryKey: ['games', {platform: gameQuery.platform?.id, genre: gameQuery.genre?.id}].filter(Boolean),
+        queryKey: ['games', {platform: gameQuery.platform?.id, genre: gameQuery.genre?.id, sortOrder: gameQuery.sortOrder?.label, search: gameQuery.searchInput}].filter(Boolean),
         queryFn: ({pageParam = 1, signal}) => gameService.getAll({
                             params: {
                                 genres: gameQuery.genre?.id,
