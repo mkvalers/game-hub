@@ -1,7 +1,25 @@
 import { AxiosRequestConfig } from "axios";
-import apiClient from "./api-client";
+import axios from "axios";
+import { CanceledError } from "axios";
 
-class HttpService {
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
+
+export interface FetchResponse<T> {
+    count: number;
+    next: string;
+    previous: string;
+    results: T[];
+}
+
+const axiosInstance =  axios.create({
+    baseURL: API_BASE_URL,
+    params: {
+        key: API_KEY
+    }
+})
+
+class HttpService <T> {
 
     endpoint: string;
 
@@ -9,20 +27,20 @@ class HttpService {
         this.endpoint = endpoint;
     }
 
-    getAll<T>() {
+    getAll() {
         const controller = new AbortController();
 
-        const request = apiClient.get<T[]>(this.endpoint, {
+        const request = axiosInstance.get<T[]>(this.endpoint, {
             signal: controller.signal
         });
 
         return {request, cancel: () => controller.abort}
     }
 
-    get<T>(requestConfig?: AxiosRequestConfig) {
+    get(requestConfig?: AxiosRequestConfig) {
         const controller = new AbortController();
 
-        const request = apiClient.get<T>(this.endpoint, {
+        const request = axiosInstance.get<T>(this.endpoint, {
             signal: controller.signal,
             ...requestConfig
         });
@@ -32,6 +50,6 @@ class HttpService {
 
 }
 
-const create = (endpoint: string) => new HttpService(endpoint);
+export {CanceledError, axiosInstance}
 
-export default create;
+export default HttpService;
