@@ -1,11 +1,10 @@
 import useGames from "@/hooks/useGames";
-import { Box, Center, Flex, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import { GameQuery } from "@/layouts/MainLayout";
 import InfiniteScroll from "react-infinite-scroll-component";
-import React from "react";
-import CenteredInput from "./CenteredText";
+import CenteredInput from "./CenteredInput";
 
 interface Props {
   gameQuery: GameQuery;
