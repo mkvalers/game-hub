@@ -9,6 +9,7 @@ import PlatformSelector from "@/components/PlatformSelector";
 import SortSelector, { SortOrder } from "@/components/SortSelector";
 import GameHeading from "@/components/GameHeading";
 import GenreSelector from "@/components/GenreSelector";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -89,6 +90,7 @@ const MainLayout = () => {
           </Box>
         </HStack>
         <GameGrid gameQuery={gameQuery} />
+        <ScrollToTopButton />
       </GridItem>
     </Grid>
   );
