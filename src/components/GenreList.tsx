@@ -30,7 +30,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
         my={4}
         size="sm"
         width="100%"
-        variant={selectedGenre == null ? "subtle" : "outline"}
+        variant={selectedGenre?.id == null ? "subtle" : "outline"}
         colorPalette="fg"
         onClick={() => onSelectedGenre(null)}
       >
@@ -41,7 +41,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
         skeleton.map((skeleton) => <GenreListSkeleton key={skeleton} />)
       ) : (
         <List.Root listStyleType="none">
-          {data?.map((genre) => (
+          {data?.results.map((genre) => (
             <List.Item key={genre.id} py={"5px"}>
               <HStack>
                 <Image
@@ -50,9 +50,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
                   src={getCroppedImage(genre.image_background)}
                 />
                 <Link
-                  fontWeight={
-                    genre.id === selectedGenre?.id ? "bold" : "normal"
-                  }
+                  fontWeight={genre === selectedGenre ? "bold" : "normal"}
                   onClick={() => onSelectedGenre(genre)}
                   fontSize={"lg"}
                 >

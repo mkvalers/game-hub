@@ -7,8 +7,8 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export interface FetchResponse<T> {
     count: number;
-    next: string;
-    previous: string;
+    next: string | null;
+    previous: string | null;
     results: T[];
 }
 
@@ -27,10 +27,10 @@ class HttpService <T> {
         this.endpoint = endpoint;
     }
 
-    getAll(requestConfig?: AxiosRequestConfig) {
+    getAll = (requestConfig?: AxiosRequestConfig) => {
         return axiosInstance
                 .get<FetchResponse<T>>(this.endpoint, requestConfig)
-                .then(res => res.data.results)
+                .then(res => res.data)
     }
 
 }

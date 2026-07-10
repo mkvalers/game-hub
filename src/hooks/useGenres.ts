@@ -13,7 +13,7 @@ const genreService = new HttpService<Genre>('/genres');
 const useGenres = () => {
     return useQuery({
         queryKey: ["genres"],
-        queryFn: () => genreService.getAll(),
+        queryFn: genreService.getAll,
         staleTime: 24 * 60 * 60 * 1000,     //24 Hours
         keepPreviousData: true,
     });
