@@ -7,7 +7,7 @@ interface Props {
 
 const CenteredInput = ({ children }: Props) => {
   return (
-    <Flex justifyContent="center" alignItems="center" py={4}>
+    <Flex justifyContent="center" alignItems="center" my={10}>
       {children}
     </Flex>
   );

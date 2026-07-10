@@ -20,6 +20,11 @@ const GameGrid = ({ gameQuery }: Props) => {
 
   return (
     <>
+      {data?.pages[0].results.length === 0 && (
+        <CenteredInput>
+          <Text fontSize="2xl">No games found</Text>
+        </CenteredInput>
+      )}
       {error && <Text>{error.message}</Text>}
       <InfiniteScroll
         dataLength={fetchedGamesCount}
@@ -30,7 +35,7 @@ const GameGrid = ({ gameQuery }: Props) => {
           </CenteredInput>
         }
         hasMore={!!hasNextPage}
-        endMessage={<CenteredInput>You reached the end.</CenteredInput>}
+        endMessage={""}
       >
         <SimpleGrid gap={5} columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}>
           {data?.pages.flatMap((page) =>
