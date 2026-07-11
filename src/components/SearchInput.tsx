@@ -6,6 +6,9 @@ import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
 
 const SearchInput = () => {
   const searchInput = useGameQueryStore((s) => s.setSearchInput);
+  const setSelectedGenre = useGameQueryStore((s) => s.setGenre);
+  const setSelectedPlatform = useGameQueryStore((s) => s.setPlatform);
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
 
   const ref = useRef<HTMLInputElement>(null);
 
@@ -31,7 +34,12 @@ const SearchInput = () => {
           fontSize={{ base: "15px" }}
           overflow="hidden"
           textOverflow="ellipsis"
-          onChange={(e) => debouncedSearch(e.target.value)}
+          onChange={(e) => {
+            debouncedSearch(e.target.value);
+            setSelectedGenre(null);
+            setSelectedPlatform(null);
+            setSortOrder(null);
+          }}
         />
       </InputGroup>
     </form>
