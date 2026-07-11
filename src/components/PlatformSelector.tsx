@@ -1,14 +1,13 @@
+import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
 import usePlatforms, { Platform } from "@/hooks/usePlatforms";
 import { Text, Box, Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
-interface Props {
-  selectedPlatform: Platform | null;
-  onSelectPlatform: (platform: Platform | null) => void;
-}
-
-const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
+const PlatformSelector = () => {
   const { data, error } = usePlatforms();
+
+  const selectedPlatform = useGameQueryStore((s) => s.gameQuery.platform);
+  const setSelectedPlatform = useGameQueryStore((s) => s.setPlatform);
 
   if (error) return null;
 
@@ -17,11 +16,11 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
       <Menu.Root
         onSelect={(details) => {
           if (details.value === "all") {
-            onSelectPlatform(null);
+            setSelectedPlatform(null);
             return;
           }
           const platform = data?.results.find((p) => p.slug === details.value);
-          if (platform) onSelectPlatform(platform);
+          if (platform) setSelectedPlatform(platform);
         }}
       >
         <Menu.Trigger asChild>

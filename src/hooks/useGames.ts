@@ -1,9 +1,9 @@
 
-import { GameQuery } from '@/layouts/MainLayout';
 import { Platform } from './usePlatforms';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import HttpService, { FetchResponse } from '@/services/http-service';
 import ms from 'ms';
+import useGameQueryStore from './stores/useGameQueryStore';
 
 export interface Game {
     id: number;
@@ -16,15 +16,20 @@ export interface Game {
 
 const gameService = new HttpService<Game>('/games');
 
-const useGames = (gameQuery: GameQuery) => {
+const useGames = () => {
+    const platform = useGameQueryStore(s => s.gameQuery.platform?.id);
+    const genre = useGameQueryStore(s => s.gameQuery.genre?.id);
+    const sortOrder = useGameQueryStore(s => s.gameQuery.sortOrder?.value);
+    const search = useGameQueryStore(s => s.gameQuery.searchInput);
+
     return useInfiniteQuery<FetchResponse<Game>, Error>({
-        queryKey: ['games', {platform: gameQuery.platform?.id, genre: gameQuery.genre?.id, sortOrder: gameQuery.sortOrder?.label, search: gameQuery.searchInput}].filter(Boolean),
+        queryKey: ['games', {platform, genre, sortOrder, search}].filter(Boolean),
         queryFn: ({pageParam = 1, signal}) => gameService.getAll({
                             params: {
-                                genres: gameQuery.genre?.id,
-                                platforms: gameQuery.platform?.id,
-                                ordering: gameQuery.sortOrder?.value,
-                                search: gameQuery.searchInput,
+                                genres: genre,
+                                platforms: platform,
+                                ordering: sortOrder,
+                                search: search,
                                 page: pageParam
                             },
                             signal

@@ -2,17 +2,16 @@ import { Input, InputGroup } from "@chakra-ui/react";
 import { useMemo, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import debounce from "lodash/debounce";
+import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
 
-interface Props {
-  onSearch: (searchInput: string) => void;
-}
+const SearchInput = () => {
+  const searchInput = useGameQueryStore((s) => s.setSearchInput);
 
-const SearchInput = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
 
   const debouncedSearch = useMemo(
-    () => debounce((value: string) => onSearch(value), 500),
-    [onSearch],
+    () => debounce((value: string) => searchInput(value), 500),
+    [searchInput],
   );
 
   return (
@@ -20,7 +19,7 @@ const SearchInput = ({ onSearch }: Props) => {
       onSubmit={(event) => {
         event.preventDefault();
         debouncedSearch.cancel();
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) searchInput(ref.current.value);
       }}
     >
       <InputGroup startElement={<BsSearch />}>

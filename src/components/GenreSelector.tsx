@@ -1,15 +1,13 @@
+import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
 import useGenres, { Genre } from "@/hooks/useGenres";
-import HttpService from "@/services/http-service";
 import { Text, Box, Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
-interface Props {
-  selectedGenre: Genre | null;
-  onSelectGenre: (genre: Genre | null) => void;
-}
-
-const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreSelector = () => {
   const { data, error } = useGenres();
+
+  const selectedGenre = useGameQueryStore((s) => s.gameQuery.genre);
+  const setSelectedGenre = useGameQueryStore((s) => s.setGenre);
 
   if (error) return null;
 
@@ -18,11 +16,11 @@ const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
       <Menu.Root
         onSelect={(details) => {
           if (details.value === "all") {
-            onSelectGenre(null);
+            setSelectedGenre(null);
             return;
           }
           const genre = data?.results.find((g) => g.slug === details.value);
-          if (genre) onSelectGenre(genre);
+          if (genre) setSelectedGenre(genre);
         }}
       >
         <Menu.Trigger asChild>

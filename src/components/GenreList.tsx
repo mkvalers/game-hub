@@ -10,14 +10,19 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import GenreListSkeleton from "./GenreListSkeleton";
+import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
 
 interface Props {
   onSelectedGenre: (genre: Genre | null) => void;
   selectedGenre?: Genre | null;
 }
 
-const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
+const GenreList = () => {
   const { data, error, isLoading } = useGenres();
+
+  const selectedGenre = useGameQueryStore((s) => s.gameQuery.genre);
+  const setSelectedGenre = useGameQueryStore((s) => s.setGenre);
+
   const skeleton = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
   ];
@@ -32,7 +37,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
         width="100%"
         variant={selectedGenre?.id == null ? "subtle" : "outline"}
         colorPalette="fg"
-        onClick={() => onSelectedGenre(null)}
+        onClick={() => setSelectedGenre(null)}
       >
         Reset
       </Button>
@@ -51,7 +56,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
                 />
                 <Link
                   fontWeight={genre === selectedGenre ? "bold" : "normal"}
-                  onClick={() => onSelectedGenre(genre)}
+                  onClick={() => setSelectedGenre(genre)}
                   fontSize={"lg"}
                 >
                   {genre.name}
