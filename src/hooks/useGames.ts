@@ -1,6 +1,6 @@
 
 import { Platform } from './usePlatforms';
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import HttpService, { FetchResponse } from '@/services/http-service';
 import ms from 'ms';
 import useGameQueryStore from './stores/useGameQueryStore';

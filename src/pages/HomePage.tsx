@@ -1,6 +1,5 @@
 import Aside from "@/components/Aside";
 import GameGrid from "@/components/GameGrid";
-import NavBar from "@/components/NavBar";
 import { Box, Grid, GridItem, HStack } from "@chakra-ui/react";
 import PlatformSelector from "@/components/PlatformSelector";
 import GameHeading from "@/components/GameHeading";
@@ -8,21 +7,18 @@ import GenreSelector from "@/components/GenreSelector";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import SortSelector from "@/components/SortSelector";
 
-const MainLayout = () => {
+const HomePage = () => {
   return (
     <Grid
       templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
+        base: `"main"`,
+        lg: `"aside main"`,
       }}
       templateColumns={{
         base: "1fr",
         lg: "300px 1fr",
       }}
     >
-      <GridItem area="nav" mb={2}>
-        <NavBar />
-      </GridItem>
       <GridItem
         paddingRight={5}
         area="aside"
@@ -60,4 +56,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default HomePage;

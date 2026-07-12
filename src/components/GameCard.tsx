@@ -1,14 +1,4 @@
-import {
-  Text,
-  Card,
-  CardBody,
-  Heading,
-  Image,
-  HStack,
-  VStack,
-  Box,
-  Flex,
-} from "@chakra-ui/react";
+import { Card, Image, HStack, Flex } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "@/services/image-url";
@@ -18,11 +8,17 @@ import TruncatedText from "./TruncatedText";
 
 interface Props {
   game: Game;
+  onClick: () => void;
 }
 
-const GameCard = ({ game }: Props) => {
+const GameCard = ({ game, onClick }: Props) => {
   return (
-    <Card.Root borderRadius={10} overflow="hidden" width="100%">
+    <Card.Root
+      borderRadius={10}
+      overflow="hidden"
+      width="100%"
+      onClick={onClick}
+    >
       {game.background_image ? (
         <Image src={getCroppedImage(game.background_image)} width="100%" />
       ) : (
