@@ -38,6 +38,7 @@ const HomePage = () => {
           }}
           gap={2}
           flexWrap="wrap"
+          px={2}
         >
           <Box flex={{ base: "1", md: "initial" }} minWidth={0}>
             <PlatformSelector />

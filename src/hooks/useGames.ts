@@ -1,18 +1,9 @@
 
-import { Platform } from './usePlatforms';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import HttpService, { FetchResponse } from '@/services/http-service';
 import ms from 'ms';
 import useGameQueryStore from './stores/useGameQueryStore';
-
-export interface Game {
-    id: number;
-    name: string;
-    slug: string;
-    background_image: string;
-    metacritic: number;
-    parent_platforms: {platform: Platform}[]
-}
+import { Game } from './gameConstants';
 
 const gameService = new HttpService<Game>('/games');
 

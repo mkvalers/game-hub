@@ -1,6 +1,5 @@
 import { AxiosRequestConfig } from "axios";
 import axios from "axios";
-import { CanceledError } from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -30,6 +29,12 @@ class HttpService <T> {
     getAll = (requestConfig?: AxiosRequestConfig) => {
         return axiosInstance
                 .get<FetchResponse<T>>(this.endpoint, requestConfig)
+                .then(res => res.data)
+    }
+
+    get = (id: string | number) => {
+        return axiosInstance
+                .get<T>(this.endpoint + '/' + id)
                 .then(res => res.data)
     }
 

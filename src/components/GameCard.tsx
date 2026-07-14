@@ -17,6 +17,9 @@ const GameCard = ({ game, onClick }: Props) => {
       borderRadius={10}
       overflow="hidden"
       width="100%"
+      cursor={"pointer"}
+      transition="transform 0.2s ease"
+      _hover={{ transform: "scale(1.03)" }}
       onClick={onClick}
     >
       {game.background_image ? (

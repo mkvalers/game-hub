@@ -37,13 +37,17 @@ const GameGrid = () => {
         hasMore={!!hasNextPage}
         endMessage={""}
       >
-        <SimpleGrid gap={5} columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}>
+        <SimpleGrid
+          p={2}
+          gap={5}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3, xl: 5 }}
+        >
           {data?.pages.flatMap((page) =>
             page.results.map((game) => (
               <GameCard
                 key={game.id}
                 game={game}
-                onClick={() => navigate(`/games/${game.id}`)}
+                onClick={() => navigate(`/games/${game.slug}`)}
               />
             )),
           )}

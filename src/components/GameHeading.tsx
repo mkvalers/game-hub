@@ -14,6 +14,7 @@ const GameHeading = () => {
       fontSize={{ base: "3xl", sm: "3xl", lg: "6xl" }}
       lineHeight={1.2}
       mb={{ base: 2, sm: 2 }}
+      px={2}
     >
       {heading}
     </Heading>
