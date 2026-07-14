@@ -2,7 +2,7 @@ import { Input, InputGroup } from "@chakra-ui/react";
 import { useMemo, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import debounce from "lodash/debounce";
-import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
+import useGameQueryStore from "@/stores/useGameQueryStore";
 
 const SearchInput = () => {
   const searchInput = useGameQueryStore((s) => s.setSearchInput);

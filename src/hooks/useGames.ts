@@ -2,8 +2,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import HttpService, { FetchResponse } from '@/services/http-service';
 import ms from 'ms';
-import useGameQueryStore from './stores/useGameQueryStore';
-import { Game } from './gameConstants';
+import useGameQueryStore from '../stores/useGameQueryStore';
+import { Game } from '../entites/Game';
 
 const gameService = new HttpService<Game>('/games');
 

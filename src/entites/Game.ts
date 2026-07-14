@@ -1,4 +1,4 @@
-import { Platform } from "./usePlatforms";
+import { Platform } from "@/entites/Platform";
 
 export interface Game {
     id: number;

@@ -2,7 +2,7 @@ import HttpService from "@/services/http-service";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import ms from "ms";
-import { Game } from "./gameConstants";
+import { Game } from "../entites/Game";
 
 const gameService = new HttpService<Game>("/games");
 

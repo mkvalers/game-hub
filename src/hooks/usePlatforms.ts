@@ -1,12 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import HttpService from "@/services/http-service";
 import ms from "ms";
-
-export interface Platform {
-    id: number;
-    name: string;
-    slug: string;
-}
+import { Platform } from "../entites/Platform";
 
 const platformService = new HttpService<Platform>('/platforms')
 

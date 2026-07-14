@@ -1,4 +1,4 @@
-import useGameQueryStore from "@/hooks/stores/useGameQueryStore";
+import useGameQueryStore from "@/stores/useGameQueryStore";
 import { Text, Box, Menu, Button, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
