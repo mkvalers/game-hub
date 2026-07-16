@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import HttpService from "@/services/http-service";
 import ms from 'ms';
-import { Genre } from "../entites/Genre";
+import { Genre } from "../entities/Genre";
 
 const genreService = new HttpService<Genre>('/genres');
 

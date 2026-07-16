@@ -1,4 +1,4 @@
-import { GameTrailer } from "@/entites/GameTrailer"
+import { GameTrailer } from "@/entities/GameTrailer"
 import HttpService from "@/services/http-service"
 import { useQuery } from "@tanstack/react-query"
 import ms from "ms"

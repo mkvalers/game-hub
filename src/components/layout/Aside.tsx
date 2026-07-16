@@ -1,4 +1,4 @@
-import GenreList from "./GenreList";
+import GenreList from "@/components/genre/GenreList";
 
 const Aside = () => {
   return <GenreList />;

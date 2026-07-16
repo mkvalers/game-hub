@@ -1,4 +1,4 @@
-import { Platform } from "@/entites/Platform";
+import { Platform } from "@/entities/Platform";
 import { Genre } from "./Genre";
 import { Publisher } from "./Pushlisher";
 

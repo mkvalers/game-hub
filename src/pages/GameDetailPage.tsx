@@ -1,7 +1,7 @@
-import GameAttributes from "@/components/GameAttributes";
-import GameScreenshots from "@/components/GameScreenshots";
-import GameTrailer from "@/components/GameTrailer";
-import TruncatedText from "@/components/TruncatedText";
+import GameAttributes from "@/components/game/GameAttributes";
+import GameScreenshots from "@/components/game/GameScreenshots";
+import GameTrailer from "@/components/game/GameTrailer";
+import TruncatedText from "@/components/shared/TruncatedText";
 import useGame from "@/hooks/useGame";
 import { Flex, GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";

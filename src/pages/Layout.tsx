@@ -1,4 +1,4 @@
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/layout/NavBar";
 import { Box } from "@chakra-ui/react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
 

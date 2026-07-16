@@ -3,7 +3,7 @@ import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
-import CenteredInput from "./CenteredInput";
+import CenteredInput from "@/components/shared/CenteredInput";
 
 const GameGrid = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();

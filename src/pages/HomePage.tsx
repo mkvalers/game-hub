@@ -1,11 +1,11 @@
-import Aside from "@/components/Aside";
-import GameGrid from "@/components/GameGrid";
+import Aside from "@/components/layout/Aside";
+import GameGrid from "@/components/game/GameGrid";
 import { Box, Grid, GridItem, HStack } from "@chakra-ui/react";
-import PlatformSelector from "@/components/PlatformSelector";
-import GameHeading from "@/components/GameHeading";
-import GenreSelector from "@/components/GenreSelector";
-import ReturnToTopButton from "@/components/ReturnToTopButton";
-import SortSelector from "@/components/SortSelector";
+import PlatformSelector from "@/components/platform/PlatformSelector";
+import GameHeading from "@/components/game/GameHeading";
+import GenreSelector from "@/components/genre/GenreSelector";
+import ReturnToTopButton from "@/components/shared/ReturnToTopButton";
+import SortSelector from "@/components/shared/SortSelector";
 
 const HomePage = () => {
   return (

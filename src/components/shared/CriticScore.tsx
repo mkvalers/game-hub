@@ -1,6 +1,6 @@
 import { Badge } from "@chakra-ui/react";
 import React from "react";
-import { Tooltip } from "./ui/tooltip";
+import { Tooltip } from "@/components/ui/tooltip";
 
 interface Props {
   score: number;

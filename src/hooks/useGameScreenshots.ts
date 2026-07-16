@@ -1,4 +1,4 @@
-import { GameScreenshot } from "@/entites/GameScreenshot";
+import { GameScreenshot } from "@/entities/GameScreenshot";
 import HttpService from "@/services/http-service"
 import { useQuery } from "@tanstack/react-query"
 import ms from "ms";

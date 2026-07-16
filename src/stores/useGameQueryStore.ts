@@ -1,6 +1,6 @@
-import { SortOrder } from "@/components/SortSelector";
-import { Genre } from "@/entites/Genre";
-import { Platform } from "@/entites/Platform";
+import { SortOrder } from "@/components/shared/SortSelector";
+import { Genre } from "@/entities/Genre";
+import { Platform } from "@/entities/Platform";
 import { create } from "zustand";
 
 interface GameQuery {

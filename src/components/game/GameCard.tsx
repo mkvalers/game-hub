@@ -1,9 +1,9 @@
 import { Card, Image, HStack, Flex, Heading } from "@chakra-ui/react";
-import PlatformIconList from "./PlatformIconList";
-import CriticScore from "./CriticScore";
+import PlatformIconList from "@/components/platform/PlatformIconList";
+import CriticScore from "@/components/shared/CriticScore";
 import getCroppedImage from "@/services/image-url";
-import NoImage from "./NoImage";
-import { Game } from "@/entites/Game";
+import NoImage from "@/components/shared/NoImage";
+import { Game } from "@/entities/Game";
 import { useNavigate } from "react-router-dom";
 
 interface Props {

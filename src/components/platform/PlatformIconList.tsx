@@ -11,8 +11,8 @@ import { SiNintendoswitch } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { Platform } from "@/entites/Platform";
-import { Tooltip } from "./ui/tooltip";
+import { Platform } from "@/entities/Platform";
+import { Tooltip } from "@/components/ui/tooltip";
 
 interface Props {
   platforms: { platform: Platform }[];
