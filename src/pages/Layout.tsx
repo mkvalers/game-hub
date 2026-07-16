@@ -5,7 +5,7 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      <NavBar position="sticky" top={0} zIndex={10} />
+      <NavBar />
       <Box>
         <Outlet />
       </Box>
