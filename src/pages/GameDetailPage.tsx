@@ -1,6 +1,9 @@
+import CriticScore from "@/components/CriticScore";
+import DefinitionItem from "@/components/DefinitionItem";
+import GameAttributes from "@/components/GameAttributes";
 import TruncatedText from "@/components/TruncatedText";
 import useGame from "@/hooks/useGame";
-import { Button, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Button, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";
 
 const GameDetailPage = () => {
@@ -11,14 +14,14 @@ const GameDetailPage = () => {
 
   return (
     <>
-      <Heading>{game?.name}</Heading>
-      <TruncatedText text={game?.description_raw || ""} maxLength={300} />
-      {/* <Text>{game?.description_raw}</Text> */}
       <Button variant="solid">
         <Link className="" to={"/"}>
           Back
         </Link>
       </Button>
+      <Heading>{game?.name}</Heading>
+      <TruncatedText text={game?.description_raw!} maxLength={300} />
+      <GameAttributes game={game!} />
     </>
   );
 };
