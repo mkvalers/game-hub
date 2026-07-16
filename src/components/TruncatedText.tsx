@@ -1,4 +1,4 @@
-import { Text, Link, Heading } from "@chakra-ui/react";
+import { Heading, Button, Text } from "@chakra-ui/react";
 import useTruncatedText from "@/hooks/useTruncatedText";
 
 interface Props {
@@ -13,14 +13,21 @@ const TruncatedText = ({ text, maxLength = 40 }: Props) => {
   );
 
   return (
-    <Heading fontSize="2xl">
+    <Text>
       {displayText}
       {isTruncated && (
-        <Link ml={1} fontSize="md" onClick={toggle} color="gray.400">
-          {isExpanded ? "See less" : "See more"}
-        </Link>
+        <Button
+          ml={1}
+          fontSize="md"
+          onClick={toggle}
+          color="gray.400"
+          size={"2xs"}
+          variant={"subtle"}
+        >
+          {isExpanded ? "Show less" : "Read more"}
+        </Button>
       )}
-    </Heading>
+    </Text>
   );
 };
 

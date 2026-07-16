@@ -1,3 +1,4 @@
+import TruncatedText from "@/components/TruncatedText";
 import useGame from "@/hooks/useGame";
 import { Button, Heading, Spinner, Text } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";
@@ -11,7 +12,8 @@ const GameDetailPage = () => {
   return (
     <>
       <Heading>{game?.name}</Heading>
-      <Text>{game?.description_raw}</Text>
+      <TruncatedText text={game?.description_raw || ""} maxLength={300} />
+      {/* <Text>{game?.description_raw}</Text> */}
       <Button variant="solid">
         <Link className="" to={"/"}>
           Back

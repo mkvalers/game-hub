@@ -1,17 +1,20 @@
-import { Card, Image, HStack, Flex } from "@chakra-ui/react";
+import { Card, Image, HStack, Flex, Heading } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "@/services/image-url";
 import NoImage from "./NoImage";
 import TruncatedText from "./TruncatedText";
 import { Game } from "@/entites/Game";
+import useGame from "@/hooks/useGame";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Props {
   game: Game;
-  onClick: () => void;
 }
 
-const GameCard = ({ game, onClick }: Props) => {
+const GameCard = ({ game }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <Card.Root
       borderRadius={10}
@@ -20,7 +23,7 @@ const GameCard = ({ game, onClick }: Props) => {
       cursor={"pointer"}
       transition="transform 0.2s ease"
       _hover={{ transform: "scale(1.03)" }}
-      onClick={onClick}
+      onClick={() => navigate(`/games/${game.slug}`)}
     >
       {game.background_image ? (
         <Image src={getCroppedImage(game.background_image)} width="100%" />
@@ -29,8 +32,9 @@ const GameCard = ({ game, onClick }: Props) => {
       )}
       <Card.Body as={Flex} direction="column" justifyContent="space-between">
         {/* <Heading fontSize="2xl">{game.name}</Heading> */}
-        <TruncatedText text={game.name} maxLength={40} />
-        <HStack justifyContent="space-between" flexWrap="wrap">
+        <Heading fontSize={"2xl"}>{game.name}</Heading>
+        {/* <TruncatedText text={game.name} maxLength={40} /> */}
+        <HStack justifyContent="space-between" flexWrap="wrap" mt={2}>
           <PlatformIconList platforms={game.parent_platforms} />
           <CriticScore score={game.metacritic} />
         </HStack>
