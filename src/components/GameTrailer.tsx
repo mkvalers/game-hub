@@ -1,4 +1,5 @@
 import useGameTrailer from "@/hooks/useGameTrailer";
+import { Box } from "@chakra-ui/react";
 import { result } from "lodash";
 
 interface Props {
@@ -15,13 +16,15 @@ const GameTrailer = ({ gameId }: Props) => {
   if (error) throw error;
 
   return first ? (
-    <video
-      src={first?.data[480]}
-      controls
-      poster={first.preview}
-      width="100%"
-      height="auto"
-    />
+    <Box mb={2}>
+      <video
+        src={first?.data[480]}
+        controls
+        poster={first.preview}
+        width="100%"
+        height="auto"
+      />
+    </Box>
   ) : null;
 };
 

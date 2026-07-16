@@ -15,8 +15,15 @@ const GameScreenshots = ({ gameId }: Props) => {
   return (
     <SimpleGrid columns={{ sm: 1, md: 2 }} gap={2}>
       {screenshots?.results.map((screenshot) => (
-        <GridItem key={screenshot.id}>
-          <Image src={screenshot.image} alt="Game Screenshot" />
+        <GridItem>
+          <Image
+            key={screenshot.id}
+            src={screenshot.image}
+            alt="Game Screenshot"
+            objectFit={"cover"}
+            width="100%"
+            height="auto"
+          />
         </GridItem>
       ))}
     </SimpleGrid>
