@@ -2,7 +2,12 @@
 
 # 🎮 Game Hub
 
-A game discovery web app for browsing, searching, and filtering games by genre, platform, and popularity — powered by the RAWG API.
+A game discovery web app powered by the RAWG API.
+
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://reactjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-4-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![Chakra UI](https://img.shields.io/badge/Chakra_UI-v3-319795?logo=chakraui&logoColor=white)](https://chakra-ui.com)
 
 [Live Demo](https://game-hub-mkv.vercel.app/)
 
@@ -10,34 +15,20 @@ A game discovery web app for browsing, searching, and filtering games by genre, 
 
 ---
 
-> 🚧 **Work in progress** — this project is actively being improved.
-
-## Features
+## ✨ Features
 
 - 🔍 Search games by title
 - 🗂️ Filter by genre and platform
 - ↕️ Sort by relevance, date, popularity, or rating
 - 🌗 Light/dark mode toggle
-- 💀 Skeleton loading states
-- 📱 Responsive, CSS Grid layout
+- ♾️ Infinite scroll
+- 📱 Responsive design
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-React 18 · TypeScript · Vite · Chakra UI v3 · Axios · next-themes · RAWG API
+React 18 · TypeScript · Vite · Chakra UI v3 · Zustand · TanStack React Query · Axios · React Router
 
-## Project Structure
-
-```
-src/
-├── components/   # UI components (NavBar, GameGrid, GameCard, selectors, etc.)
-├── hooks/        # useData, useGames, useGenres, usePlatforms
-├── layouts/      # MainLayout — top-level grid + shared filter state
-├── services/     # api-client, http-service, image-url
-├── App.tsx
-└── main.tsx
-```
-
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 git clone https://github.com/mkvalers/game-hub.git
@@ -45,7 +36,7 @@ cd game-hub
 npm install
 ```
 
-Create a `.env` file with your [RAWG API](https://rawg.io/apidocs) credentials:
+Create a `.env` file with your [RAWG API](https://rawg.io/apidocs) key:
 
 ```env
 VITE_API_BASE_URL=https://api.rawg.io/api
@@ -58,17 +49,15 @@ Then run:
 npm run dev
 ```
 
-| Script | Description |
-|---|---|
+## 📜 Scripts
+
+| Command | Description |
+|---------|-------------|
 | `npm run dev` | Start dev server |
 | `npm run build` | Type-check and build for production |
 | `npm run preview` | Preview production build |
+| `npm run lint` | Lint with ESLint |
 
-## License
+## 📄 License
 
 MIT
-
-## Acknowledgements
-
-- [RAWG Video Games Database](https://rawg.io/) for the game data API
-- [Chakra UI](https://chakra-ui.com/) for the component library
