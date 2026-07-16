@@ -1,6 +1,5 @@
 import HttpService from "@/services/http-service";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
 import ms from "ms";
 import { Game } from "../entites/Game";
 

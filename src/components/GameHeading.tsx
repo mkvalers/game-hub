@@ -1,5 +1,5 @@
 import useGameQueryStore from "@/stores/useGameQueryStore";
-import { Box, Heading } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 
 const GameHeading = () => {
   const platformName = useGameQueryStore((s) => s.gameQuery.platform?.name);

@@ -1,6 +1,5 @@
 import useGameTrailer from "@/hooks/useGameTrailer";
 import { Box } from "@chakra-ui/react";
-import { result } from "lodash";
 
 interface Props {
   gameId: number;

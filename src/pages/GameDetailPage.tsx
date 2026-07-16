@@ -1,24 +1,14 @@
-import CriticScore from "@/components/CriticScore";
-import DefinitionItem from "@/components/DefinitionItem";
 import GameAttributes from "@/components/GameAttributes";
 import GameScreenshots from "@/components/GameScreenshots";
 import GameTrailer from "@/components/GameTrailer";
 import TruncatedText from "@/components/TruncatedText";
 import useGame from "@/hooks/useGame";
-import {
-  Button,
-  Flex,
-  GridItem,
-  Heading,
-  SimpleGrid,
-  Spinner,
-  Text,
-} from "@chakra-ui/react";
-import { Link, useParams } from "react-router-dom";
+import { Flex, GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
 
 const GameDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { data: game, isLoading, error } = useGame(slug!);
+  const { data: game, isLoading } = useGame(slug!);
 
   if (isLoading)
     return (

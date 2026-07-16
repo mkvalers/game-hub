@@ -1,6 +1,5 @@
 import useGameQueryStore from "@/stores/useGameQueryStore";
 import useGenres from "@/hooks/useGenres";
-import { Genre } from "@/entites/Genre";
 import { Text, Box, Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 

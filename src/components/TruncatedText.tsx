@@ -1,4 +1,4 @@
-import { Heading, Button, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import useTruncatedText from "@/hooks/useTruncatedText";
 
 interface Props {

@@ -3,10 +3,8 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "@/services/image-url";
 import NoImage from "./NoImage";
-import TruncatedText from "./TruncatedText";
 import { Game } from "@/entites/Game";
-import useGame from "@/hooks/useGame";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -31,9 +29,7 @@ const GameCard = ({ game }: Props) => {
         <NoImage />
       )}
       <Card.Body as={Flex} direction="column" justifyContent="space-between">
-        {/* <Heading fontSize="2xl">{game.name}</Heading> */}
         <Heading fontSize={"2xl"}>{game.name}</Heading>
-        {/* <TruncatedText text={game.name} maxLength={40} /> */}
         <HStack justifyContent="space-between" flexWrap="wrap" mt={2}>
           <PlatformIconList platforms={game.parent_platforms} />
           <CriticScore score={game.metacritic} />

@@ -21,7 +21,7 @@ const SearchInput = () => {
         navigate("/");
         searchInput(value);
       }, 500),
-    [searchInput],
+    [searchInput, navigate],
   );
 
   return (

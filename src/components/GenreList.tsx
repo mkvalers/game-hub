@@ -1,22 +1,8 @@
 import useGenres from "@/hooks/useGenres";
-import { Genre } from "@/entites/Genre";
 import getCroppedImage from "@/services/image-url";
-import {
-  Text,
-  List,
-  HStack,
-  Image,
-  Button,
-  Link,
-  Heading,
-} from "@chakra-ui/react";
+import { List, HStack, Image, Button, Link, Heading } from "@chakra-ui/react";
 import GenreListSkeleton from "./GenreListSkeleton";
 import useGameQueryStore from "@/stores/useGameQueryStore";
-
-interface Props {
-  onSelectedGenre: (genre: Genre | null) => void;
-  selectedGenre?: Genre | null;
-}
 
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();

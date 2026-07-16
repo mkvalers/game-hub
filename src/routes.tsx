@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import GameDetailPage from "./pages/GameDetailPage";
 import Layout from "./pages/Layout";
