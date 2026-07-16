@@ -1,6 +1,7 @@
 import CriticScore from "@/components/CriticScore";
 import DefinitionItem from "@/components/DefinitionItem";
 import GameAttributes from "@/components/GameAttributes";
+import GameTrailer from "@/components/GameTrailer";
 import TruncatedText from "@/components/TruncatedText";
 import useGame from "@/hooks/useGame";
 import { Button, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
@@ -22,6 +23,7 @@ const GameDetailPage = () => {
       <Heading>{game?.name}</Heading>
       <TruncatedText text={game?.description_raw!} maxLength={300} />
       <GameAttributes game={game!} />
+      <GameTrailer gameId={game?.id!} />
     </>
   );
 };
