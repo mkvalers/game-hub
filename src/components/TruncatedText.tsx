@@ -20,7 +20,7 @@ const TruncatedText = ({ text, maxLength = 40 }: Props) => {
           ml={1}
           fontSize="md"
           onClick={toggle}
-          color="gray.400"
+          color="gray.00"
           size={"2xs"}
           variant={"subtle"}
         >

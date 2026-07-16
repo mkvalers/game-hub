@@ -3,6 +3,7 @@ import { useMemo, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import debounce from "lodash/debounce";
 import useGameQueryStore from "@/stores/useGameQueryStore";
+import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const searchInput = useGameQueryStore((s) => s.setSearchInput);
@@ -12,8 +13,14 @@ const SearchInput = () => {
 
   const ref = useRef<HTMLInputElement>(null);
 
+  const navigate = useNavigate();
+
   const debouncedSearch = useMemo(
-    () => debounce((value: string) => searchInput(value), 500),
+    () =>
+      debounce((value: string) => {
+        navigate("/");
+        searchInput(value);
+      }, 500),
     [searchInput],
   );
 

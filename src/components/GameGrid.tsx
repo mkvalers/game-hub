@@ -14,8 +14,6 @@ const GameGrid = () => {
   const fetchedGamesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) ?? 0;
 
-  const navigate = useNavigate();
-
   return (
     <>
       {data?.pages[0].results.length === 0 && (

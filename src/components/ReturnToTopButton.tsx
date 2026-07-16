@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { IconButton } from "@chakra-ui/react";
 import { FaArrowUp } from "react-icons/fa";
 
-const ScrollToTopButton = () => {
+const ReturnToTopButton = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ const ScrollToTopButton = () => {
   );
 };
 
-export default ScrollToTopButton;
+export default ReturnToTopButton;

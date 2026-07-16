@@ -4,7 +4,7 @@ import { Box, Grid, GridItem, HStack } from "@chakra-ui/react";
 import PlatformSelector from "@/components/PlatformSelector";
 import GameHeading from "@/components/GameHeading";
 import GenreSelector from "@/components/GenreSelector";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ReturnToTopButton from "@/components/ReturnToTopButton";
 import SortSelector from "@/components/SortSelector";
 
 const HomePage = () => {
@@ -33,8 +33,6 @@ const HomePage = () => {
           justifyContent={{
             base: "space-between",
             sm: "flex-start",
-            md: "flex-start",
-            lg: "flex-start",
           }}
           gap={2}
           flexWrap="wrap"
@@ -51,7 +49,7 @@ const HomePage = () => {
           </Box>
         </HStack>
         <GameGrid />
-        <ScrollToTopButton />
+        <ReturnToTopButton />
       </GridItem>
     </Grid>
   );
