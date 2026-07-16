@@ -1,6 +1,7 @@
 import CriticScore from "@/components/CriticScore";
 import DefinitionItem from "@/components/DefinitionItem";
 import GameAttributes from "@/components/GameAttributes";
+import GameScreenshots from "@/components/GameScreenshots";
 import GameTrailer from "@/components/GameTrailer";
 import TruncatedText from "@/components/TruncatedText";
 import useGame from "@/hooks/useGame";
@@ -24,6 +25,7 @@ const GameDetailPage = () => {
       <TruncatedText text={game?.description_raw!} maxLength={300} />
       <GameAttributes game={game!} />
       <GameTrailer gameId={game?.id!} />
+      <GameScreenshots gameId={game?.slug!} />
     </>
   );
 };
