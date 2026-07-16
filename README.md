@@ -26,7 +26,16 @@ A game discovery web app powered by the RAWG API.
 
 ## 🛠️ Tech Stack
 
-React 18 · TypeScript · Vite · Chakra UI v3 · Zustand · TanStack React Query · Axios · React Router
+| Technologies
+|------------|
+| **React 18** | UI components and hooks-based architecture |
+| **TypeScript** | Type safety across components, hooks, and API responses |
+| **Vite** | Fast dev server and optimized production builds |
+| **Chakra UI v3** | Pre-built accessible UI components with theming |
+| **Zustand** | Lightweight global state for game query filters |
+| **TanStack React Query** | Server state management, caching, and infinite scroll |
+| **Axios** | HTTP client for RAWG API requests |
+| **React Router** | Client-side routing for game detail pages |
 
 ## 🚀 Getting Started
 
@@ -51,12 +60,12 @@ npm run dev
 
 ## 📜 Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start dev server |
-| `npm run build` | Type-check and build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Lint with ESLint |
+| Command           | Description                         |
+| ----------------- | ----------------------------------- |
+| `npm run dev`     | Start dev server                    |
+| `npm run build`   | Type-check and build for production |
+| `npm run preview` | Preview production build            |
+| `npm run lint`    | Lint with ESLint                    |
 
 ## 📄 License
 
